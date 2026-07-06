@@ -74,7 +74,6 @@
     html { scroll-behavior: smooth; }
     body { transition: background-color 0.3s ease, color 0.3s ease; }
     [data-theme="dark"] #hero { background: var(--bg); }
-    [data-theme="dark"] .announce-bar { background: var(--blue-dark); }
     [data-theme="dark"] nav { background: rgba(12,19,34,0.85); }
     [data-theme="dark"] .mobile-menu { background: rgba(12,19,34,0.97); }
     [data-theme="dark"] .form-field input, [data-theme="dark"] .form-field textarea { background: var(--surface); color: var(--ink); }
@@ -99,20 +98,6 @@
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 2px; }
 
-    /* ── ROLE FILTER ── */
-    .role-filter { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 1.75rem; }
-    .role-filter-btn {
-      font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; letter-spacing: 0.02em;
-      padding: 0.45rem 0.9rem; border-radius: 20px; border: 1.5px solid var(--rule); background: var(--surface);
-      color: var(--ink-soft); cursor: pointer; transition: all 0.2s ease;
-    }
-    .role-filter-btn:hover { border-color: var(--blue); color: var(--blue); }
-    .role-filter-btn.active { background: var(--blue); border-color: var(--blue); color: #fff; }
-    .skill-item { transition: opacity 0.25s ease, filter 0.25s ease; }
-    .skill-item.role-dim { opacity: 0.32; filter: grayscale(0.6); }
-    .skill-item.role-match .skill-item-label { color: var(--blue); font-weight: 600; }
-    .skill-item.role-match .skill-dot { background: var(--blue); box-shadow: 0 0 0 3px var(--blue-xlt); }
-
     /* ── RECRUITER NUDGE ── */
     #recruiter-nudge {
       position: fixed; left: 20px; bottom: -200px; z-index: 997; width: min(330px, calc(100vw - 40px));
@@ -133,22 +118,6 @@
     .recruiter-nudge-btn.wa { background: #25D366; color: #fff; }
     .recruiter-nudge-btn.email { background: var(--blue-lt); color: var(--blue); border: 1px solid var(--blue-xlt); }
     @media (max-width: 480px) { #recruiter-nudge { left: 50%; transform: translateX(-50%); } #recruiter-nudge.show { bottom: 18px; } }
-
-    /* ── ANNOUNCE BAR ── */
-    .announce-bar {
-      background: var(--blue-dark);
-      color: rgba(255,255,255,0.92); text-align: center;
-      padding: 0.55rem 2.5rem;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 11.5px; letter-spacing: 0.06em; position: relative; z-index: 101;
-    }
-    .announce-bar span { color: #93c5fd; }
-    .announce-close {
-      position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);
-      background: none; border: none; color: rgba(255,255,255,0.5);
-      cursor: pointer; font-size: 14px;
-    }
-    .announce-close:hover { color: #fff; }
 
     /* ── NAV ── */
     nav {
@@ -245,50 +214,6 @@
     .about-text a { color: var(--blue); font-weight: 600; text-decoration: none; }
     .highlight-box { background: var(--blue-lt); border-left: 3px solid var(--blue); border-radius: 0 6px 6px 0; padding: 1.1rem 1.25rem; margin-top: 1.5rem; }
 
-    /* ── JOB MATCH TOOL ── */
-    .match-tool { background: var(--surface); border: 1.5px solid var(--rule); border-radius: 14px; padding: 1.5rem 1.6rem; margin-bottom: 2.25rem; }
-    .match-tool-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.9rem; }
-    .match-tool-title { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 600; color: var(--ink); display: flex; align-items: center; gap: 0.5rem; }
-    .match-tool-sub { font-size: 12.5px; color: var(--ink-mute); margin-top: 0.25rem; }
-    .match-tool textarea {
-      width: 100%; min-height: 92px; resize: vertical; border: 1.5px solid var(--rule); border-radius: 8px;
-      padding: 0.75rem 0.9rem; font-family: 'Inter', sans-serif; font-size: 13px; color: var(--ink);
-      background: var(--bg); transition: border-color 0.2s; line-height: 1.55;
-    }
-    .match-tool textarea:focus { outline: none; border-color: var(--blue); }
-    .match-tool-actions { display: flex; align-items: center; gap: 0.7rem; margin-top: 0.8rem; flex-wrap: wrap; }
-    .match-btn {
-      font-family: 'Inter', sans-serif; font-size: 13px; font-weight: 600; padding: 0.6rem 1.3rem; border-radius: 7px;
-      border: none; background: var(--blue); color: #fff; cursor: pointer; transition: opacity 0.2s, transform 0.15s;
-    }
-    .match-btn:hover { opacity: 0.88; }
-    .match-btn:active { transform: scale(0.98); }
-    .match-btn:disabled { opacity: 0.5; cursor: not-allowed; }
-    .match-clear-btn {
-      font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--ink-mute); background: none;
-      border: none; cursor: pointer; text-decoration: underline; text-underline-offset: 2px;
-    }
-    .match-clear-btn:hover { color: var(--ink-soft); }
-    .match-results { margin-top: 1.25rem; padding-top: 1.1rem; border-top: 1px dashed var(--rule); display: none; }
-    .match-results.show { display: block; }
-    .match-score-row { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem; }
-    .match-score-ring { position: relative; width: 56px; height: 56px; flex-shrink: 0; }
-    .match-score-ring svg { width: 100%; height: 100%; transform: rotate(-90deg); }
-    .match-score-ring-bg { fill: none; stroke: var(--rule); stroke-width: 5; }
-    .match-score-ring-fill { fill: none; stroke: var(--blue); stroke-width: 5; stroke-linecap: round; transition: stroke-dashoffset 0.6s ease; }
-    .match-score-num { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: 'JetBrains Mono', monospace; font-size: 13px; font-weight: 600; color: var(--blue); }
-    .match-score-label { font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
-    .match-score-label strong { color: var(--ink); }
-    .match-chip-group { margin-bottom: 0.9rem; }
-    .match-chip-group-label { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-mute); margin-bottom: 0.5rem; }
-    .match-chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .match-chip {
-      font-size: 12px; font-weight: 500; padding: 0.32rem 0.7rem; border-radius: 14px; display: inline-flex; align-items: center; gap: 0.3rem;
-    }
-    .match-chip.hit { background: var(--green-lt); color: var(--green); border: 1px solid var(--green-bd); }
-    .match-chip.miss { background: var(--bg); color: var(--ink-mute); border: 1px solid var(--rule); }
-    .match-summary { font-size: 13.5px; color: var(--ink-soft); line-height: 1.65; background: var(--blue-lt); border-left: 3px solid var(--blue); border-radius: 0 6px 6px 0; padding: 0.9rem 1.1rem; }
-    .match-summary strong { color: var(--ink); }
     .highlight-box p { font-family: 'Playfair Display', serif; font-size: 13.5px; color: var(--blue-dark); font-style: italic; margin-bottom: 0 !important; }
     .about-cards { display: flex; flex-direction: column; gap: 0.75rem; }
     .about-card { background: var(--surface); border: 1px solid var(--rule); border-radius: 12px; padding: 1rem 1.1rem; display: flex; align-items: center; gap: 0.85rem; transition: box-shadow 0.25s, transform 0.25s; }
@@ -511,8 +436,8 @@
 
     /* ── PRINT ── */
     @media print {
-      .announce-bar, nav, .mobile-menu, #scroll-top, #reading-progress, #cmdk-overlay,
-      #welcome-overlay, #chat-fab, #chat-panel, .nav-hamburger, .cmdk-trigger, .theme-toggle,
+      nav, .mobile-menu, #scroll-top, #reading-progress, #cmdk-overlay,
+      #chat-fab, #chat-panel, .nav-hamburger, .cmdk-trigger, .theme-toggle,
       .btn-group, .contact-form, .status-pill, #cookie-notice, #sticky-contact, #shortcuts-overlay { display: none !important; }
       body { background: #fff; color: #000; font-size: 11pt; }
       section { padding: 1rem 0; border-top: none; page-break-inside: avoid; }
@@ -622,12 +547,6 @@
 <body>
 
 <div id="reading-progress"></div>
-
-<!-- ANNOUNCE BAR -->
-<div class="announce-bar" id="announce-bar">
-  <span>🟢</span> &nbsp;<strong>Open to Work</strong> — Seeking junior roles: <span>Accounts Payable · Accounts Receivable · Graduate Accountant · Bookkeeper · Finance Officer</span> across Australia &nbsp;·&nbsp; Available <span>immediately</span>
-  <button class="announce-close" onclick="closeAnnounceBar()" aria-label="Close">✕</button>
-</div>
 
 <!-- NAV -->
 <nav id="main-nav">
@@ -901,47 +820,6 @@
     <h2>Skills in Progress</h2>
     <p style="color:var(--ink-soft);font-size:13.5px;margin-bottom:0.5rem;">Currently building my accounting and finance foundation through my MPA at KOI and hands-on learning. Levels reflect honest self-assessment at this stage of my journey.</p>
 
-    <div class="match-tool reveal" id="match-tool">
-      <div class="match-tool-head">
-        <div>
-          <div class="match-tool-title">🎯 Is Choodamani a fit for your role?</div>
-          <div class="match-tool-sub">Paste a job description below — I'll match it against his skills and experience in seconds.</div>
-        </div>
-      </div>
-      <textarea id="match-input" placeholder="Paste the job ad or key requirements here, e.g. 'Looking for an Accounts Payable Officer with experience in Xero, vendor reconciliation, and month-end processes...'"></textarea>
-      <div class="match-tool-actions">
-        <button class="match-btn" id="match-btn" onclick="runJobMatch()">Match against profile</button>
-        <button class="match-clear-btn" id="match-clear-btn" onclick="clearJobMatch()" style="display:none;">Clear</button>
-      </div>
-      <div class="match-results" id="match-results">
-        <div class="match-score-row">
-          <div class="match-score-ring">
-            <svg viewBox="0 0 56 56">
-              <circle class="match-score-ring-bg" cx="28" cy="28" r="24"></circle>
-              <circle class="match-score-ring-fill" id="match-score-circle" cx="28" cy="28" r="24" stroke-dasharray="150.8" stroke-dashoffset="150.8"></circle>
-            </svg>
-            <div class="match-score-num" id="match-score-num">0%</div>
-          </div>
-          <div class="match-score-label" id="match-score-text"></div>
-        </div>
-        <div class="match-chip-group">
-          <div class="match-chip-group-label">Matched in this role</div>
-          <div class="match-chips" id="match-chips-hit"></div>
-        </div>
-        <div class="match-chip-group" id="match-miss-group">
-          <div class="match-chip-group-label">Not mentioned in profile</div>
-          <div class="match-chips" id="match-chips-miss"></div>
-        </div>
-        <div class="match-summary" id="match-summary"></div>
-      </div>
-    </div>
-
-    <div class="role-filter" id="role-filter">
-      <button class="role-filter-btn active" data-role="all" onclick="filterSkills('all', this)">All Skills</button>
-      <button class="role-filter-btn" data-role="ap" onclick="filterSkills('ap', this)">🎯 AP Officer</button>
-      <button class="role-filter-btn" data-role="ar" onclick="filterSkills('ar', this)">🎯 AR Officer</button>
-      <button class="role-filter-btn" data-role="grad" onclick="filterSkills('grad', this)">🎯 Graduate Accountant</button>
-    </div>
     <div class="skills-outer reveal">
       <div class="skill-card">
         <div class="skill-card-header"><div class="skill-icon">📊</div><h3>Accounting &amp; Finance</h3></div>
@@ -1167,14 +1045,6 @@
   const hamburger=document.getElementById('hamburger'), mobileMenu=document.getElementById('mobile-menu');
   if(hamburger&&mobileMenu){hamburger.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');hamburger.setAttribute('aria-expanded',open);});mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');hamburger.setAttribute('aria-expanded','false');}));}
 
-  // Announce bar nav offset
-  const announceBar=document.getElementById('announce-bar'), mainNav=document.getElementById('main-nav');
-  function updateNavTop(){if(announceBar&&announceBar.style.display!=='none'){const h=announceBar.offsetHeight;mainNav.style.top=h+'px';const hero=document.getElementById('hero');if(hero)hero.style.paddingTop='calc('+(58+h)+'px + 4.5rem)';}else{mainNav.style.top='0';}}
-  updateNavTop();
-
-  function closeAnnounceBar(){var bar=document.getElementById('announce-bar');if(bar){bar.style.display='none';try{localStorage.setItem('announceBarClosed','1');}catch(e){}updateNavTop();}}
-  (function(){try{if(localStorage.getItem('announceBarClosed')==='1'){var bar=document.getElementById('announce-bar');if(bar)bar.style.display='none';updateNavTop();}}catch(e){}})();
-
   // Scroll to top
   const scrollBtn=document.getElementById('scroll-top');
   window.addEventListener('scroll',()=>{if(scrollBtn)scrollBtn.classList.toggle('visible',window.scrollY>400);},{passive:true});
@@ -1187,111 +1057,6 @@
   // Scroll reveal
   const revealObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');revealObs.unobserve(e.target);}});},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.reveal').forEach(el=>revealObs.observe(el));
-
-  // Role filter on Skills
-  window.filterSkills = function(role, btnEl) {
-    document.querySelectorAll('#role-filter .role-filter-btn').forEach(b => b.classList.toggle('active', b === btnEl));
-    document.querySelectorAll('#skills .skill-item').forEach(item => {
-      const roles = (item.getAttribute('data-roles') || '').split(' ');
-      item.classList.remove('role-dim', 'role-match');
-      if (role !== 'all') {
-        if (roles.includes(role)) item.classList.add('role-match');
-        else item.classList.add('role-dim');
-      }
-    });
-  };
-
-  // ── JOB MATCH TOOL ──────────────────────────────────────────────────
-  // Keyword bank: each entry = [display label, array of phrases/synonyms to look for in the job ad]
-  const MATCH_BANK = [
-    { label: 'Financial Reporting (AASB/IFRS)', terms: ['financial reporting','aasb','ifrs','statutory reporting'] },
-    { label: 'Year-End Accounting', terms: ['year-end','year end','financial year close','annual close'] },
-    { label: 'Financial Analysis', terms: ['financial analysis','financial analyst','variance analysis'] },
-    { label: 'Cost Accounting', terms: ['cost accounting','cost analysis'] },
-    { label: 'Budgeting & Forecasting', terms: ['budget','budgeting','forecast','forecasting'] },
-    { label: 'Core Banking Systems', terms: ['core banking','banking software','banking system','fintech'] },
-    { label: 'Payment Gateways', terms: ['payment gateway','payments processing','transaction processing'] },
-    { label: 'Accounts Payable', terms: ['accounts payable','ap officer','vendor reconciliation','invoice processing'] },
-    { label: 'Accounts Receivable', terms: ['accounts receivable','ar officer','debtor','collections'] },
-    { label: 'Team Leadership', terms: ['team lead','leadership','supervis','manage a team','managing staff','people management'] },
-    { label: 'Staff Training', terms: ['training','onboarding','coaching','mentoring'] },
-    { label: 'Client/Stakeholder Communication', terms: ['stakeholder','client communication','customer service','client relationship'] },
-    { label: 'Microsoft Excel', terms: ['excel','spreadsheet'] },
-    { label: 'Xero', terms: ['xero'] },
-    { label: 'MYOB', terms: ['myob'] },
-    { label: 'Audit Principles', terms: ['audit','auditing'] },
-    { label: 'Bookkeeping', terms: ['bookkeep'] },
-    { label: 'Reconciliation', terms: ['reconcil'] },
-    { label: 'Process Improvement', terms: ['process improvement','efficiency','streamlin'] },
-    { label: 'Communication Skills', terms: ['communication skills','written and verbal','interpersonal'] }
-  ];
-
-  function escapeHtml(s) { return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c])); }
-
-  window.runJobMatch = function() {
-    const raw = document.getElementById('match-input').value.trim();
-    if (!raw) { document.getElementById('match-input').focus(); return; }
-    const text = ' ' + raw.toLowerCase() + ' ';
-
-    const hits = [], misses = [];
-    MATCH_BANK.forEach(entry => {
-      const found = entry.terms.some(t => text.includes(t));
-      if (found) hits.push(entry.label); else misses.push(entry.label);
-    });
-
-    // Only show misses that are plausibly relevant — i.e. cap list length so it's not overwhelming
-    const relevantMisses = misses.slice(0, 8);
-
-    const total = hits.length + relevantMisses.length;
-    const pct = total > 0 ? Math.round((hits.length / total) * 100) : 0;
-
-    // Render score ring
-    const circumference = 150.8;
-    const offset = circumference - (circumference * pct / 100);
-    document.getElementById('match-score-circle').style.strokeDashoffset = offset;
-    document.getElementById('match-score-num').textContent = pct + '%';
-
-    let scoreMsg;
-    if (pct >= 70) scoreMsg = '<strong>Strong match.</strong> Choodamani\'s background lines up well with this role.';
-    else if (pct >= 40) scoreMsg = '<strong>Partial match.</strong> Solid overlap, with some areas he\'s actively building.';
-    else scoreMsg = '<strong>Limited overlap detected</strong> — but worth a closer look, as not every skill is captured by keyword matching.';
-    document.getElementById('match-score-text').innerHTML = scoreMsg;
-
-    // Render chips
-    const hitWrap = document.getElementById('match-chips-hit');
-    hitWrap.innerHTML = hits.length
-      ? hits.map(h => `<span class="match-chip hit">✓ ${escapeHtml(h)}</span>`).join('')
-      : '<span style="font-size:12px;color:var(--ink-mute);">No direct keyword matches found — try pasting more of the job description.</span>';
-
-    const missWrap = document.getElementById('match-chips-miss');
-    const missGroup = document.getElementById('match-miss-group');
-    if (relevantMisses.length) {
-      missGroup.style.display = '';
-      missWrap.innerHTML = relevantMisses.map(m => `<span class="match-chip miss">${escapeHtml(m)}</span>`).join('');
-    } else {
-      missGroup.style.display = 'none';
-    }
-
-    // Summary line
-    const topHits = hits.slice(0, 3).join(', ');
-    let summary;
-    if (hits.length === 0) {
-      summary = "This role's keywords didn't directly overlap with the listed profile — but Choodamani's 5+ years in banking software and finance operations may still be transferable. Worth a conversation.";
-    } else {
-      summary = `Based on this job ad, Choodamani's strongest overlaps are <strong>${escapeHtml(topHits)}</strong>${hits.length > 3 ? ', among others' : ''}. Combined with his MPA in progress and hands-on banking/finance background, he's actively applying for graduate-level accounting, AP/AR, and finance roles in Australia.`;
-    }
-    document.getElementById('match-summary').innerHTML = summary;
-
-    document.getElementById('match-results').classList.add('show');
-    document.getElementById('match-clear-btn').style.display = '';
-  };
-
-  window.clearJobMatch = function() {
-    document.getElementById('match-input').value = '';
-    document.getElementById('match-results').classList.remove('show');
-    document.getElementById('match-clear-btn').style.display = 'none';
-    document.getElementById('match-input').focus();
-  };
 
   // Recruiter interest nudge
   window.dismissRecruiterNudge = function() {
@@ -1484,164 +1249,6 @@
 </script>
 
 
-
-<!-- ══════════════════════════════════════════════
-     WELCOME BANNER OVERLAY
-══════════════════════════════════════════════ -->
-<style>
-  /* Welcome Banner */
-  #welcome-overlay {
-    position: fixed; inset: 0; z-index: 9999;
-    display: flex; align-items: center; justify-content: center;
-    background: rgba(15, 23, 42, 0.72);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    animation: overlayFadeIn 0.5s ease both;
-  }
-  @keyframes overlayFadeIn { from { opacity: 0; } to { opacity: 1; } }
-  #welcome-overlay.hiding {
-    animation: overlayFadeOut 0.45s ease forwards;
-  }
-  @keyframes overlayFadeOut { from { opacity: 1; } to { opacity: 0; pointer-events: none; } }
-
-  .welcome-card {
-    background: #fff;
-    border-radius: 20px;
-    padding: 2.5rem 2.75rem 2rem;
-    max-width: 500px;
-    width: calc(100% - 2.5rem);
-    box-shadow: 0 32px 80px rgba(0,0,0,0.28), 0 4px 20px rgba(30,58,138,0.16);
-    position: relative;
-    animation: cardSlideUp 0.5s cubic-bezier(0.22,1,0.36,1) both;
-    animation-delay: 0.1s;
-    text-align: center;
-  }
-  @keyframes cardSlideUp { from { opacity: 0; transform: translateY(32px) scale(0.97); } to { opacity: 1; transform: none; } }
-
-  .welcome-emoji-ring {
-    width: 72px; height: 72px; border-radius: 50%;
-    background: #eff6ff;
-    border: 3px solid #bfdbfe;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 2rem; margin: 0 auto 1.25rem;
-  }
-  .welcome-hey {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 11px; letter-spacing: 0.14em; color: #1e40af;
-    text-transform: uppercase; font-weight: 600; margin-bottom: 0.5rem;
-  }
-  .welcome-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(1.5rem, 5vw, 1.9rem);
-    color: #172554; font-weight: 700; line-height: 1.18;
-    margin-bottom: 0.9rem;
-  }
-  .welcome-title em { font-style: italic; color: #1e40af; }
-  .welcome-desc {
-    font-size: 14px; color: #475569; line-height: 1.72;
-    margin-bottom: 1.6rem;
-  }
-  .welcome-tags {
-    display: flex; flex-wrap: wrap; gap: 0.45rem;
-    justify-content: center; margin-bottom: 1.75rem;
-  }
-  .welcome-tag {
-    font-size: 11.5px; font-weight: 500;
-    background: #eff6ff; color: #1e3a8a;
-    border: 1px solid #bfdbfe; border-radius: 20px;
-    padding: 0.28rem 0.8rem;
-  }
-  .welcome-btn-row {
-    display: flex; gap: 0.65rem; justify-content: center; flex-wrap: wrap;
-  }
-  .welcome-btn-primary {
-    background: #1e3a8a;
-    color: #fff; border: none; border-radius: 8px;
-    padding: 0.72rem 1.6rem; font-size: 14px; font-weight: 600;
-    cursor: pointer; font-family: inherit;
-    box-shadow: 0 3px 12px rgba(30,58,138,0.22);
-    transition: background 0.2s, transform 0.15s;
-    display: flex; align-items: center; gap: 0.45rem;
-  }
-  .welcome-btn-primary:hover { background: #1e40af; transform: translateY(-1px); }
-  .welcome-btn-secondary {
-    background: #f8fafc; color: #475569;
-    border: 1.5px solid #e2e8f0; border-radius: 8px;
-    padding: 0.72rem 1.4rem; font-size: 14px; font-weight: 500;
-    cursor: pointer; font-family: inherit;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .welcome-btn-secondary:hover { border-color: #1e40af; color: #1e40af; }
-  .welcome-skip {
-    display: block; margin-top: 1rem;
-    font-size: 11.5px; color: #94a3b8; cursor: pointer;
-    background: none; border: none; font-family: inherit;
-    transition: color 0.2s;
-  }
-  .welcome-skip:hover { color: #64748b; }
-
-  /* Wave animation on avatar */
-  .wave-hand { display: inline-block; }
-
-  /* Progress dots */
-  .welcome-progress {
-    display: flex; gap: 6px; justify-content: center; margin-bottom: 1.5rem;
-  }
-  .wp-dot {
-    width: 7px; height: 7px; border-radius: 50%;
-    background: #bfdbfe; transition: background 0.3s, transform 0.3s;
-  }
-  .wp-dot.active { background: #1e40af; transform: scale(1.3); }
-</style>
-
-<div id="welcome-overlay">
-  <div class="welcome-card">
-    <div class="welcome-emoji-ring"><span class="wave-hand">👋</span></div>
-    <div class="welcome-hey">Welcome to my portfolio</div>
-    <h2 class="welcome-title">Hi, I'm <em>Choodamani</em><br>Parajuli</h2>
-    <p class="welcome-desc">
-      Finance &amp; Accounting professional with 5+ years in banking software, 
-      now pursuing my MPA at KOI Sydney. I led a 12-member team, supported 100+ banking clients, 
-      and I'm actively seeking roles — <strong>Accounts Payable Officer, Accounts Receivable Officer, Graduate Accountant, Bookkeeper,</strong> or <strong>Finance Officer</strong> across Australia.
-    </p>
-    <div class="welcome-tags">
-      <span class="welcome-tag">📍 Sydney, Australia</span>
-      <span class="welcome-tag">🎓 MPA · King's Own Institute</span>
-      <span class="welcome-tag">✅ Open to Work</span>
-
-    </div>
-    <div class="welcome-btn-row">
-      <button class="welcome-btn-primary" onclick="dismissWelcome(true)">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 8 16 12 12 16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-        Explore Portfolio
-      </button>
-      <button class="welcome-btn-secondary" onclick="dismissWelcomeAndOpenChat()">💬 Ask AI Assistant</button>
-    </div>
-    <button class="welcome-skip" onclick="dismissWelcome(false)">Skip intro</button>
-  </div>
-</div>
-
-<script>
-  function dismissWelcome(smooth) {
-    const overlay = document.getElementById('welcome-overlay');
-    overlay.classList.add('hiding');
-    setTimeout(() => { overlay.remove(); }, 450);
-    try { sessionStorage.setItem('welcomeSeen', '1'); } catch(e) {}
-  }
-  function dismissWelcomeAndOpenChat() {
-    dismissWelcome(true);
-    setTimeout(() => toggleChat(), 520);
-  }
-  // Don't show again in same session
-  (function() {
-    try {
-      if (sessionStorage.getItem('welcomeSeen') === '1') {
-        const overlay = document.getElementById('welcome-overlay');
-        if (overlay) overlay.remove();
-      }
-    } catch(e) {}
-  })();
-</script>
 
 <!-- ══════════════════════════════════════════════
      AI CHATBOT WIDGET
