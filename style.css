@@ -111,7 +111,7 @@ cite{display:block;margin-top:.7rem;font:600 13px 'Plus Jakarta Sans';font-style
 .dl{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:30px;background:#0f4a39;color:#fff;font-weight:600;font-size:15px;text-decoration:none;border:1px solid rgba(111,228,147,.45);white-space:nowrap}
 .dl svg{width:18px;height:18px}
 .hx{position:relative;min-height:100vh;display:flex;align-items:center;padding:140px 0 70px;overflow:hidden;background:radial-gradient(900px 600px at 20% 30%,#10473a,transparent 70%),#0a2820;color:#f3f7f5;margin-bottom:3.5rem}
-.hx-photo{position:absolute;right:0;bottom:0;height:88%;aspect-ratio:972/839;background:url(assets/hero.jpg) center/100% 100% no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%),linear-gradient(180deg,transparent 0,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 30%),linear-gradient(180deg,transparent 0,#000 12%);mask-composite:intersect}
+.hx-photo{position:absolute;right:0;bottom:0;height:88%;aspect-ratio:972/839;background:url(assets/hero.jpg?v=4) center/100% 100% no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%),linear-gradient(180deg,transparent 0,#000 12%);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent 0,#000 30%),linear-gradient(180deg,transparent 0,#000 12%);mask-composite:intersect}
 .hx-in{position:relative;z-index:2;width:100%}.hx-copy{max-width:800px}
 .hx-eye{display:flex;align-items:center;gap:18px;font-size:14px;letter-spacing:.3em;text-transform:uppercase;color:#a9c4b9;margin:0 0 26px}.hx-eye:after{content:"";width:64px;height:2px;background:#6fe493}
 .hx h1{font:600 clamp(2.2rem,3.9vw,4.3rem)/1.08 'Playfair Display',serif;letter-spacing:-.01em;margin:0;max-width:none}
@@ -151,3 +151,8 @@ section{scroll-margin-top:6.5rem}
 .hx-sig{display:flex;flex-wrap:wrap;align-items:flex-end;gap:10px 28px}.hx-sig i{flex-basis:100%}
 .hx-in-link{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px;color:#f3f7f5;text-decoration:none;font-weight:600;font-size:14px;padding:7px 14px;border:1px solid rgba(255,255,255,.25);border-radius:30px}
 .hx-in-link:hover{border-color:#6fe493;color:#8af2ab}.hx-in-link svg{width:16px;height:16px}
+
+.btns .btn{display:inline-flex;align-items:center;gap:.55rem}
+.btn .wa{color:#25d366}.btn .lk{color:#0a66c2}
+[data-theme=dark] .btn .lk{color:#58a6ff}
+.btn.p svg{color:currentColor}
